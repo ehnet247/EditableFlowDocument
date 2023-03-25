@@ -20,34 +20,59 @@ namespace EditableFlowDocument
     /// </summary>
     public partial class MainWindow : Window
     {
+        public FlowDocument Flow { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+            Flow = new FlowDocument();
+            fdViewer.Document = Flow;
         }
 
         private void Btn_CheckBox_Click(object sender, RoutedEventArgs e)
         {
-            FlowDocument doc = new FlowDocument();
-
-            Paragraph p = new Paragraph(new Run("Hello, world!"));
-            p.FontSize = 36;
-            doc.Blocks.Add(p);
-
-            p = new Paragraph(new Run("The ultimate programming greeting!"));
-            p.FontSize = 14;
-            p.FontStyle = FontStyles.Italic;
-            p.TextAlignment = TextAlignment.Left;
-            p.Foreground = Brushes.Gray;
-            doc.Blocks.Add(p);
             BlockUIContainer blockUI = new BlockUIContainer();
             TextBox textBox = new TextBox();
-            textBox.Text = "Item 1";
+            //textBox.Text = "Item 1";
             CheckBox checkBox = new CheckBox();
             checkBox.Content = textBox;
-            blockUI.Child = checkBox; 
-            doc.Blocks.Add(blockUI);
+            blockUI.Child = checkBox;
+            Flow.Blocks.Add(blockUI);
 
-            fdViewer.Document = doc;
+            fdViewer.Document = Flow;
+        }
+
+        private void Btn_Text_Click(object sender, RoutedEventArgs e)
+        {
+            BlockUIContainer blockUI = new BlockUIContainer();
+            RichTextBox textBox = new RichTextBox();
+            blockUI.Child = textBox;
+            Flow.Blocks.Add(blockUI);
+        }
+
+        private void Btn_CheckBox_Click_old(object sender, RoutedEventArgs e)
+        {
+
+            Paragraph p = new Paragraph(new Run(""));
+           //p.FontSize = 36;
+            Flow.Blocks.Add(p);
+
+            //p = new Paragraph(new Run("The ultimate programming greeting!"));
+            //p = new Paragraph(new Run(""));
+            //p.FontSize = 14;
+            //p.FontStyle = FontStyles.Italic;
+            //p.TextAlignment = TextAlignment.Left;
+            //p.Foreground = Brushes.Gray;
+            //Flow.Blocks.Add(p);
+            BlockUIContainer blockUI = new BlockUIContainer();
+            TextBox textBox = new TextBox();
+            //textBox.Text = "Item 1";
+            CheckBox checkBox = new CheckBox();
+            checkBox.Content = textBox;
+            blockUI.Child = checkBox;
+            Flow.Blocks.Add(blockUI);
+
+            fdViewer.Document = Flow;
         }
     }
 }

@@ -26,6 +26,9 @@
             <Button x:Name="Btn_CheckBox" Click="Btn_CheckBox_Click"  Height="30" Margin="{StaticResource BtnMargin}">
                 <TextBlock Text="CheckBox"/>
             </Button>
+            <Button x:Name="Btn_Text" Click="Btn_Text_Click"  Height="30" Margin="{StaticResource BtnMargin}">
+                <TextBlock Text="Text"/>
+            </Button>
         </StackPanel>
         <FlowDocumentScrollViewer Grid.Row="1" Name="fdViewer" />
     </Grid>
